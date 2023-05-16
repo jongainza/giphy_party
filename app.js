@@ -1,5 +1,6 @@
 const userImput = document.querySelector("#imp");
 const board = document.querySelector('#results');
+const form = document.querySelector('form');
 
 
 
@@ -18,13 +19,20 @@ async function getData(){
     board.appendChild(newImage)
 }
 }
+
+form.addEventListener('submit',function(event){
+    event.preventDefault()
+    getData()
+});
 // const add =document.querySelector("#add");
-// const del = document.querySelector('#rem');
+const del = document.querySelector('#rem');
 
 // //add.addEventListener('click',function(){
 //  //   console.log("you pussed it")
 // //})
 
-// del.addEventListener("click", function(){
-//     board.empty()
-// })
+del.addEventListener("click", function(){
+    while (board.firstChild){
+        board.firstChild.remove()
+    }
+})
